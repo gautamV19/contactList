@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+  margin: auto;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#site-heading {
+  align-self: center;
+  justify-self: center;
+  margin-top: 25px;
+  color: grey;
+}
+
+#contact-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact {
+  background-color: aqua;
+  display: flex;
+  justify-content: space-around;
+  margin: 10px auto;
+  width: 100%;
+  padding: 7px;
+}
+.contact i {
+  font-size: 200%;
+  align-self: center;
+  margin: 5px;
+}
+.contact p {
+  margin: 5px;
+  align-self: center;
+}
+.contact:hover {
+  background-color: grey;
+}
+.li-item {
+  text-decoration: none;
+  display: inline;
+}
+
+input {
+  border: 0;
+  border-bottom: 2px solid black;
+  margin: 7px;
+}
+
+.delete-button {
+  height: fit-content;
+  background-color: inherit;
+  border: 0;
+}
+/* removing arrows from number input*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#add-button {
+  background-color: royalblue;
+  color: white;
+  font-size: 1.3rem;
+  height: 3rem;
+  width: 9.5rem;
+  cursor: pointer;
+}
