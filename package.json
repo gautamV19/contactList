@@ -1,0 +1,23 @@
+{
+  "name": "contactlist",
+  "version": "1.0.0",
+  "description": "A simple contact list project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gautamVaja/contactList.git"
+  },
+  "author": "gautam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gautamVaja/contactList/issues"
+  },
+  "homepage": "https://github.com/gautamVaja/contactList#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
