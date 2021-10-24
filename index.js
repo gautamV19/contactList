@@ -1,10 +1,33 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: "./config/config.env" });
+
 const express = require("express");
 const path = require("path");
 const port = 8000;
 
-const db = require("./config/mongoose");
+
+
 
 const app = express();
+
+// require("./config/mongoose");
+
+const mongoose = require("mongoose");
+const DB = process.env.DATABASE;
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(DB, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("monogDB connected successfully");
+  } catch (error) {
+    console.log(error);
+  }
+};
+connectDB();
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -60,8 +83,7 @@ app.get("/delete-contact", (req, res) => {
 });
 
 app.post("/create-contact", (req, res) => {
-  console.log("Inside create contact", req);
-  console.log("Inside create contact", req.body);
+
   // contactList = [...contactList, req.body];
   // contactList.push(req.body);
   return res.redirect("/");
