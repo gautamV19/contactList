@@ -1,5 +1,16 @@
 const Contact = require("../Models/contactSchema");
 
+module.exports.showContact = async (req, res) => {
+    const contacts = await Contact.find({}).sort("-createdAt");
+
+    // console.log("Contacts list", contacts);
+
+    return res.render("home", {
+        title: "My Contacts",
+        contact_list: contacts,
+    });
+}
+
 module.exports.createContact = async (req, res) => {
     console.log("create contact", req.body);
 
@@ -27,7 +38,19 @@ module.exports.createContact = async (req, res) => {
     // console.log("create contact", req.query);
 }
 
-module.exports.deleteContact = (req, res) => {
+module.exports.deleteContact = async (req, res) => {
     console.log("delete contact", req.query.phone);
+
+    try {
+        let contact = await Contact.findOne({ phone: phone });
+
+        await contact.remove();
+
+        console.log("deleted succesfully");
+
+    } catch (err) {
+        console.log("Error in deleting contact", err);
+    }
+
     return res.redirect("back");
 }
