@@ -1,5 +1,10 @@
+const Contact = require("../Models/contactSchema");
+
 module.exports.createContact = (req, res) => {
     console.log("create contact", req.body);
+
+
+
     return res.redirect("back");
     // console.log("create contact", req.query);
 }

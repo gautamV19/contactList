@@ -7,25 +7,14 @@ const port = 8000;
 
 const app = express();
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.urlencoded());
+app.use(express.static('assets'));
+
 require("./config/mongoose");
 
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-// app.use(express.urlencoded());
-
 app.use(express.static("assets"));
-
-app.post("/create-contact", (req, res) => {
-
-  console.log(req.xhr);
-  console.log(req.params);
-  console.log(req.params);
-
-  return res.redirect("/");
-});
-
-
 
 app.use("/", require("./Routes/index"));
 

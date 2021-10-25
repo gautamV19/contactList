@@ -38,7 +38,7 @@ router.get("/", (req, res) => {
     });
 });
 
-const controller = require('../controller');
+const controller = require('../Controller');
 
 router.post('/create-contact', controller.createContact)
 router.get('/delete-contact', controller.deleteContact);
