@@ -39,7 +39,9 @@ module.exports.createContact = async (req, res) => {
 }
 
 module.exports.deleteContact = async (req, res) => {
-    console.log("delete contact", req.query.phone);
+    const phone = req.query.phone;
+
+    console.log("delete contact", phone);
 
     try {
         let contact = await Contact.findOne({ phone: phone });
