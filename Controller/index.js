@@ -12,7 +12,7 @@ module.exports.showContact = async (req, res) => {
 }
 
 module.exports.createContact = async (req, res) => {
-    console.log("create contact", req.body);
+    // console.log("create contact", req.body);
 
     const { name, phone } = req.body;
 
@@ -21,17 +21,18 @@ module.exports.createContact = async (req, res) => {
         const userExist = await Contact.findOne({ phone: phone });
 
         if (userExist) {
-            console.log("Number already exist");
+            window.alert("Number already exist");
             // return res.status(422).json({ err: "Number already exist" });
         }
         else {
             await Contact.create(req.body);
-            console.log("Contact added succesfully");
+            window.alert("Contact added succesfully");
             // res.status(500).json("Contact added succesfully");
         }
 
     } catch (err) {
         console.log("create contact error", err);
+        window.alert("error in adding contact");
     }
 
     return res.redirect("back");
@@ -41,17 +42,17 @@ module.exports.createContact = async (req, res) => {
 module.exports.deleteContact = async (req, res) => {
     const phone = req.query.phone;
 
-    console.log("delete contact", phone);
 
     try {
         let contact = await Contact.findOne({ phone: phone });
 
         await contact.remove();
 
-        console.log("deleted succesfully");
+        window.alert("deleted succesfully");
 
     } catch (err) {
         console.log("Error in deleting contact", err);
+        window.alert("Error in Delating contact");
     }
 
     return res.redirect("back");

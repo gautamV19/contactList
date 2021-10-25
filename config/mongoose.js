@@ -7,7 +7,6 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("monogDB connected successfully");
   } catch (error) {
     console.log(error);
   }
